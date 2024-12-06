@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Dice Date v2</string>
+
+    <string name="upcoming">Geplante Events</string>
+    <string name="recent">Vergangene Events</string>
+
+    <string name="datum">Spieleabend am</string>
+
+</resources>
