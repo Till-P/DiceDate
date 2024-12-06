@@ -127,6 +127,8 @@ public class MainActivity extends AppCompatActivity {
         builder.create().show();
     }
 
+    //test
+
 
     public void rateEventDialog(Event event, View v) {
         // Erstelle einen Dialog-Builder
