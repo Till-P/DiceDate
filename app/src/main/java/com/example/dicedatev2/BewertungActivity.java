@@ -31,8 +31,8 @@ public class BewertungActivity extends AppCompatActivity {
 
         Event uebergebenesEvent = (Event) getIntent().getSerializableExtra("event");
 
-        EditText editBewertung = findViewById(R.id.editBewertung);
-        editBewertung.setText(String.format("%.1f", uebergebenesEvent.getBewertung()) + " nach " + String.format("%.0f", uebergebenesEvent.getAnzahlBewertungen()) + " Votes");
+        TextView textBewertung = findViewById(R.id.textView8);
+        textBewertung.setText(String.format("Bisherige Bewertung ist %.1f (%.0f Stimmen)", uebergebenesEvent.getBewertung(),uebergebenesEvent.getAnzahlBewertungen())); //+ " nach " + String.format("%.0f", uebergebenesEvent.getAnzahlBewertungen()) + " Votes");
 
         TextView datumText = findViewById(R.id.textView9);
         datumText.setText("Wie fandest du den Spieleabend am " + uebergebenesEvent.getDatum() + "?");
@@ -55,9 +55,13 @@ public class BewertungActivity extends AppCompatActivity {
         intent.putExtra("event", uebergebenesEvent);
         setResult(RESULT_OK, intent);
         finish();
-
-
     }
 
+    public void abbrechen(View v){
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("event", (Event) getIntent().getSerializableExtra("event"));
+        setResult(RESULT_CANCELED, intent);
+        finish();
+    }
 
 }

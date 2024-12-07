@@ -80,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
         TextView eventHostTextView = eventView.findViewById(R.id.eventHostTextView);
         TextView eventFoodTextView = eventView.findViewById(R.id.eventFoodTextView);
 
+        eventView.setBackground( getResources().getDrawable(R.drawable.past_event_item_background));
+
         eventDateTextView.setText("Datum: " + event.getDatum());
         eventHostTextView.setText("Gastgeber: " + event.getHost());
         eventFoodTextView.setText("Essen: " + event.getEssen());
@@ -127,7 +129,6 @@ public class MainActivity extends AppCompatActivity {
         builder.create().show();
     }
 
-    //test
 
 
     public void rateEventDialog(Event event, View v) {
@@ -143,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("Bewerten", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(MainActivity.this, BewertungActivity.class); //ZIEL ÄNDERN!
+                Intent intent = new Intent(MainActivity.this, BewertungActivity.class);
                 intent.putExtra("event", event);
                 startActivityForResult(intent, 2);
                 pastEventLinearLayout.removeView(v);
@@ -157,14 +158,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 1) {
-            Event bearbeitetesEvent = (Event) data.getSerializableExtra("event");
-            addEventUpcoming(bearbeitetesEvent);
-        }
-        if (requestCode == 2) {
-            Event bearbeitetesEvent = (Event) data.getSerializableExtra("event");
-            addEventPast(bearbeitetesEvent);
-        }
+   //     if (resultCode == RESULT_OK) {
+            if (requestCode == 1) {
+                Event bearbeitetesEvent = (Event) data.getSerializableExtra("event");
+                addEventUpcoming(bearbeitetesEvent);
+            }
+            if (requestCode == 2) {
+                Event bearbeitetesEvent = (Event) data.getSerializableExtra("event");
+                addEventPast(bearbeitetesEvent);
+            }
+  //      }
 
     }
 

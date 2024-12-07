@@ -87,4 +87,14 @@ public class DetailActivity extends AppCompatActivity {
         else {datumEditText.setError("Datum fehlt!");}
 
     }
+
+    public void abbrechen(View v){
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("event", (Event) getIntent().getSerializableExtra("event"));
+        setResult(RESULT_CANCELED, intent);
+        finish();
+    }
+
+
+
 }
