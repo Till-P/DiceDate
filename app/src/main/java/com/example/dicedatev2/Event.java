@@ -7,10 +7,16 @@ import java.util.Random;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+//Event Klasse mit allen notwendigen Attributen (mit setter und getter)
 public class Event implements Serializable {
 
     private Float bewertung;
     private Float anzahlBewertungen;
+    private Float bewertung_essen;
+    private Float anzahlBewertungen_essen;
+    private Float bewertung_spiele;
+    private Float anzahlBewertungen_spiele;
+
     private String datum;
     private String host;
     private String essen;
@@ -20,6 +26,10 @@ public class Event implements Serializable {
     public Event(String date, String host, String food) {
         this.bewertung = 0.0F;
         this.anzahlBewertungen = 0.0F;
+        this.bewertung_essen = 0.0F;
+        this.anzahlBewertungen_essen = 0.0F;
+        this.bewertung_spiele = 0.0F;
+        this.anzahlBewertungen_spiele = 0.0F;
         this.datum = date;
         this.host = host;
         this.essen = food;
@@ -43,13 +53,17 @@ public class Event implements Serializable {
         return teilnehmende;    }
     public void setTeilnehmende(ArrayList<String> teilnehmende) {
         this.teilnehmende = teilnehmende;    }
-    public Float getBewertung() {
-        return bewertung;    }
-    public void setBewertung(Float bewertung) {
-        this.bewertung = bewertung;    }
-    public Float getAnzahlBewertungen() {
-        return anzahlBewertungen;    }
-    public void setAnzahlBewertungen(Float bewertung) {
-        this.anzahlBewertungen = bewertung;    }
+    public Float getBewertung() {return bewertung;}
+    public void setBewertung(Float bewertung) {this.bewertung = bewertung;}
+    public Float getAnzahlBewertungen() {return anzahlBewertungen;}
+    public void setAnzahlBewertungen(Float bewertung) {this.anzahlBewertungen = bewertung;}
+    public Float getBewertung_essen() {return bewertung_essen;}
+    public void setBewertung_essen(Float bewertung) {this.bewertung_essen = bewertung;}
+    public Float getAnzahlBewertungen_essen() {return anzahlBewertungen_essen;}
+    public void setAnzahlBewertungen_essen(Float bewertung) {this.anzahlBewertungen_essen = bewertung;}
+    public Float getBewertung_spiele() {return bewertung_spiele;}
+    public void setBewertung_spiele(Float bewertung) {this.bewertung_spiele = bewertung;}
+    public Float getAnzahlBewertungen_spiele() {return anzahlBewertungen_spiele;}
+    public void setAnzahlBewertungen_spiele(Float bewertung) {this.anzahlBewertungen_spiele = bewertung;}
 
 }
