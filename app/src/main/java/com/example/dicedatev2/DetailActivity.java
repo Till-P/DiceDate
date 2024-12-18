@@ -24,7 +24,6 @@ public class DetailActivity extends AppCompatActivity {
         Event uebergebenesEvent = (Event) getIntent().getSerializableExtra("event");
 
         //Views aus der Oberfläche werden in Variablen gespeichert
-        TextView idText = findViewById(R.id.textId);
         TextView datumEditText = findViewById(R.id.datumEditText);
         TextView hostEdit = findViewById(R.id.hostEdit);
         TextView essenEdit = findViewById(R.id.essenEdit);
@@ -32,7 +31,6 @@ public class DetailActivity extends AppCompatActivity {
         TextView spieleEdit = findViewById(R.id.spieleEdit);
 
         //Daten aus dem Event-Objekt werden in die entsprechenden Felder der Benutzeroberfläche eingefügt
-        idText.setText("Bewertung FOR DEBUG " + uebergebenesEvent.getBewertung());
         datumEditText.setText(uebergebenesEvent.getDatum());
         hostEdit.setText(uebergebenesEvent.getHost());
         essenEdit.setText(uebergebenesEvent.getEssen());
