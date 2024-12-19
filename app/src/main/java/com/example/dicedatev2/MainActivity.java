@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(MainActivity.this, DetailActivity.class);
         intent.putExtra("event", new Event("","",""));
-        startActivityForResult(intent, 1);
+        startActivityForResult(intent, 3);
 
     }
 
@@ -179,10 +179,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-   //     if (resultCode == RESULT_OK) {
+        if (!(resultCode == RESULT_CANCELED && requestCode == 3)) {
 
         // Wenn aus Detail in Main gewechselt wird (Code 1)
-            if (requestCode == 1) {
+            if (requestCode == 1 || requestCode == 3) {
                 //Füge das bearbeitete Element der Oberfläche hinzu
                 Event bearbeitetesEvent = (Event) data.getSerializableExtra("event");
                 addEventUpcoming(bearbeitetesEvent);
@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
                 Event bewertetesEvent = (Event) data.getSerializableExtra("event");
                 addEventPast(bewertetesEvent);
             }
-  //      }
+        }
 
     }
 
